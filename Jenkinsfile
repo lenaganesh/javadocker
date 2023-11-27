@@ -24,6 +24,7 @@ pipeline {
         }
 		sh "pwd"
 		sh "ls -l"
+		sh "ls -l"
          build job: "javadocker-build", wait: true
       }
     }
