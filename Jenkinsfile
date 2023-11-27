@@ -7,6 +7,7 @@ pipeline {
   stages {
     stage('Trigger-Pull-Request-Build') {
       steps {
+        
         sh 'printenv'
         echo "Trigger devops main job to build"
         script {
