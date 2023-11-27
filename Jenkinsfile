@@ -7,7 +7,7 @@ pipeline {
   stages {
     stage('Trigger-Pull-Request-Build') {
       steps {
-        
+
         sh 'printenv'
         echo "Trigger devops main job to build"
         script {
@@ -23,8 +23,7 @@ pipeline {
           }
         }
 		sh "pwd"
-		sh "ls -l"
-		sh "ls -l"
+   sh "ls -l"
          build job: "javadocker-build", wait: true
       }
     }
