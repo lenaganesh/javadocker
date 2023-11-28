@@ -1,5 +1,10 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      label "docker-java-node"
+      image "apshome/jenkins-lts"
+    }
+  }
   environment {
     change_branch = ""
     change_target = ""
@@ -22,10 +27,10 @@ pipeline {
             change_target = ""
           }
         }
-		sh "pwd"
+        sh "pwd"
         sh "ls -l"
-		
-         build job: "javadocker-build", wait: true
+
+        build job: "javadocker-build", wait: true
       }
     }
   }
