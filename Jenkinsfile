@@ -1,8 +1,7 @@
 pipeline {
   agent {
     docker {
-      label "docker-java-node"
-      image "apshome/jenkins-lts"
+      label "docker-build-java-agent"
     }
   }
   environment {
