@@ -26,6 +26,7 @@ pipeline {
         }
         sh "pwd"
         sh "ls -l"
+         sh "ls -l ../"
         sh "hostname"
         sh "ip a"
 
