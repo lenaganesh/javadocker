@@ -1,6 +1,9 @@
 pipeline {
   agent {
+ 
+        docker {
     image 'build-java-agent'
+        }
   }
   environment {
     change_branch = ""
