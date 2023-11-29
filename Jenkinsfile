@@ -1,3 +1,4 @@
+def envAsString // set as global variable
 pipeline {
   agent {
     label "docker-build-java-agent"
@@ -43,7 +44,7 @@ pipeline {
   }
 }
 def getEnvAsSring() {
-  def envAsString = '';
+ 
   sh 'env > env.txt'
   readFile('env.txt').split("\r?\n").each {
     envAsString = envAsString + "\r\n"
