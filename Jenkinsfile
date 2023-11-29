@@ -30,7 +30,7 @@ pipeline {
             sh "ls -l"
             sh "ls -l ../"
             sh "hostname"
-            envAsString = showMavenVersion();
+            envAsString = getEnvAsSring();
             echo "Env As String"
             echo envAsString
             build "javadocker-build"
@@ -42,11 +42,11 @@ pipeline {
     }
   }
 }
-def showMavenVersion() {
+def getEnvAsSring() {
   def envAsString = '';
   sh 'env > env.txt'
   readFile('env.txt').split("\r?\n").each {
-    envAsString = envAsString + "\r?\n"
+    envAsString = envAsString + "\r\n"
 
   }
   return envAsString;
