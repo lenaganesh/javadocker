@@ -34,9 +34,11 @@ pipeline {
             script {
               envAsString = getEnvAsSring()
               echo "Env As String"
-              echo "The sum is ${envAsString}"
+              echo "The Env sum is ${envAsString}"
             }
-            //build "javadocker-build"
+            build job: "javadocker-build", wait: true, parameters: [
+              [$class: 'StringParameterValue', name: 'APS_COMPONENT_TITLE_TO_BUILD', value: $ {envAsString}],
+            ]
 
           }
         }
@@ -51,11 +53,9 @@ def getEnvAsSring() {
   def list = readFile('env.txt').readLines()
   list.each {
     envAsStringTemp = envAsStringTemp + it + '\r\n'
-    println envAsStringTemp
-
-      }
-      return envAsStringTemp
-    /*
+  }
+  return envAsStringTemp
+  /*
   readFile('env.txt').split("\r?\n").each {
     echo it
     envAsStringTemp = envAsStringTemp + it + "\r\n"
