@@ -34,7 +34,7 @@ pipeline {
             getEnvAsSring()
             echo "Env As String"
              echo "The sum is ${envAsString}"
-            build "javadocker-build"
+            //build "javadocker-build"
 
           }
         }
