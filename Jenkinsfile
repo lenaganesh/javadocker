@@ -1,4 +1,4 @@
-def envAsString ='' // set as global variable
+def envAsString = '' // set as global variable
 pipeline {
   agent {
     label "docker-build-java-agent"
@@ -31,9 +31,11 @@ pipeline {
             sh "ls -l"
             sh "ls -l ../"
             sh "hostname"
-            getEnvAsSring()
-            echo "Env As String"
-            //echo "The sum is ${envAsString}"
+            script {
+              getEnvAsSring()
+              echo "Env As String"
+              echo "The sum is ${envAsString}"
+            }
             //build "javadocker-build"
 
           }
@@ -44,9 +46,10 @@ pipeline {
   }
 }
 def getEnvAsSring() {
+  def envAsStringTemp = ''
   sh 'env > env.txt'
   readFile('env.txt').split("\r?\n").each {
-   // envAsString = envAsString + "\r\n"
+    envAsStringTemp = envAsStringTemp + "\r\n"
   }
-  return "SDFDSFDS" //envAsString
+  return envAsStringTemp //envAsString
 }
