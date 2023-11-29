@@ -1,14 +1,7 @@
 pipeline {
-agent {
-        docker {
-          /*
-           * Reuse the workspace on the agent defined at top-level of
-           * Pipeline, but run inside a container.
-           */
-          reuseNode true
-          image 'maven:3.6.3-openjdk-11'
-        }
-}
+  agent {
+    label "docker-build-java-agent"
+  }
   environment {
     change_branch = ""
     change_target = ""
