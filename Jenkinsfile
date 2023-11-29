@@ -31,7 +31,7 @@ pipeline {
             sh "ls -l"
             sh "ls -l ../"
             sh "hostname"
-            envAsString = getEnvAsSring();
+            envAsString = getEnvAsSring()
             echo "Env As String"
             echo envAsString
             build "javadocker-build"
@@ -50,5 +50,5 @@ def getEnvAsSring() {
     envAsString = envAsString + "\r\n"
 
   }
-  return envAsString;
+  return envAsString
 }
