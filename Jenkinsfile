@@ -49,7 +49,8 @@ def getEnvAsSring() {
   def envAsStringTemp = ''
   sh 'env > env.txt'
   readFile('env.txt').split("\r?\n").each {
-    envAsStringTemp = envAsStringTemp + "\r\n"
+    echo it
+    envAsStringTemp = envAsStringTemp + it + "\r\n"
   }
   return envAsStringTemp //envAsString
 }
