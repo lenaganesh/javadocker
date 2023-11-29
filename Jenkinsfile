@@ -32,7 +32,7 @@ pipeline {
             sh "ls -l ../"
             sh "hostname"
             script {
-              getEnvAsSring()
+              envAsString = getEnvAsSring()
               echo "Env As String"
               echo "The sum is ${envAsString}"
             }
@@ -48,9 +48,14 @@ pipeline {
 def getEnvAsSring() {
   def envAsStringTemp = ''
   sh 'env > env.txt'
+  def file1 = new File("/path/to/the/file/xyz.html" )
+    def lines = file1.readLines()
+    return lines
+    /*
   readFile('env.txt').split("\r?\n").each {
     echo it
     envAsStringTemp = envAsStringTemp + it + "\r\n"
   }
   return envAsStringTemp //envAsString
+  */
 }
