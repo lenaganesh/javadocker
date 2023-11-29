@@ -1,6 +1,9 @@
 pipeline {
   agent {
-    label "docker-build-java-agent"
+    node{
+        label "docker-build-java-agent"
+    }
+   
   }
   environment {
     change_branch = ""
