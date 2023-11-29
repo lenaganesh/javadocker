@@ -46,7 +46,7 @@ pipeline {
 def getEnvAsSring() {
   sh 'env > env.txt'
   readFile('env.txt').split("\r?\n").each {
-    envAsString = envAsString + "\r\n"
+   // envAsString = envAsString + "\r\n"
   }
-  return envAsString
+  return "SDFDSFDS" //envAsString
 }
