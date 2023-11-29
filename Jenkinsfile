@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Trigger-Pull-Request-Build') {
       parallel {
-        steps {
+
           stage('EL6') {
             steps {
               sh 'printenv'
@@ -35,7 +35,7 @@ pipeline {
 
             }
           }
-        }
+        
       }
     }
   }
