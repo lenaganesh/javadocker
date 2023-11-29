@@ -48,9 +48,8 @@ pipeline {
 def getEnvAsSring() {
   def envAsStringTemp = ''
   sh 'env > env.txt'
-  def file1 = new File("/path/to/the/file/xyz.html" )
-    def lines = file1.readLines()
-    return lines
+  def list = readFile('env.txt').readLines()
+    return list
     /*
   readFile('env.txt').split("\r?\n").each {
     echo it
