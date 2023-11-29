@@ -8,6 +8,7 @@ agent {
           reuseNode true
           image 'image: maven:3.6.3-openjdk-11'
         }
+}
   environment {
     change_branch = ""
     change_target = ""
