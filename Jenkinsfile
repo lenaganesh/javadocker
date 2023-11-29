@@ -8,6 +8,7 @@ pipeline {
   }
   stages {
     stage('Trigger-Pull-Request-Build') {
+         parallel {
       steps {
 
         sh 'printenv'
@@ -31,6 +32,7 @@ pipeline {
 
         build "javadocker-build"
       }
+         }
     }
   }
 }
