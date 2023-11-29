@@ -1,4 +1,4 @@
-def envAsString // set as global variable
+def envAsString ='' // set as global variable
 pipeline {
   agent {
     label "docker-build-java-agent"
@@ -33,7 +33,7 @@ pipeline {
             sh "hostname"
             getEnvAsSring()
             echo "Env As String"
-             echo "The sum is ${envAsString}"
+            //echo "The sum is ${envAsString}"
             //build "javadocker-build"
 
           }
