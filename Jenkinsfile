@@ -33,7 +33,7 @@ pipeline {
             sh "hostname"
             getEnvAsSring()
             echo "Env As String"
-            echo envAsString
+             echo "The sum is ${envAsString}"
             build "javadocker-build"
 
           }
