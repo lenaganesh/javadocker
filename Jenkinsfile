@@ -29,7 +29,7 @@ pipeline {
          sh "ls -l ../"
         sh "hostname"
 
-        build job: "javadocker-build", wait: true
+        build "javadocker-build"
       }
     }
   }
