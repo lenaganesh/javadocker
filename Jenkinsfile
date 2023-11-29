@@ -6,7 +6,7 @@ agent {
            * Pipeline, but run inside a container.
            */
           reuseNode true
-          image 'image: maven:3.6.3-openjdk-11'
+          image 'maven:3.6.3-openjdk-11'
         }
 }
   environment {
