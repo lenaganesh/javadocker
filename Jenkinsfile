@@ -38,12 +38,29 @@ pipeline {
             }
             build job: "javadocker-build", wait: true, parameters: [
               [$class: 'StringParameterValue', name: 'APS_COMPONENT_TITLE_TO_BUILD', value: "APS Home BE"],
+               [$class: 'StringParameterValue', name: 'APS_COMPONENT_TO_BUILD', value: "aps-home-be"],
                [$class: 'StringParameterValue', name: 'PARENT_ENV', value: "${envAsString}"]
             ]
 
           }
         }
+        stage('Maven_Build') {
+        parallel {
+        //APS Client Manager- Maven Build
+        stage("Maven-Build") {
+          steps {
+            dir("${APS_COMPONENT_TO_BUILD}") {
+              echo "$PATH"
+              sh "java -version"
+              sh "mvn -version"
+              sh "mvn clean install"
+            }
+          }
+        }
 
+      }
+
+    } //Build APS Projects in Parallel
       }
     }
   }
