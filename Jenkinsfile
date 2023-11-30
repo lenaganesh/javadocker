@@ -35,7 +35,7 @@ pipeline {
               envAsString = getEnvAsSring()
               echo "Env As String"
               echo "The Env sum is ${envAsString}"
-              APS_COMPONENT_TO_BUILD = 'sssss'
+              APS_COMPONENT_TO_BUILD = './'
             }
             build job: "javadocker-build", wait: true, parameters: [
               [$class: 'StringParameterValue', name: 'APS_COMPONENT_TITLE_TO_BUILD', value: "APS Home BE"],
