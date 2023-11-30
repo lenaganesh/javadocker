@@ -45,7 +45,10 @@ pipeline {
 
           }
         }
-        stage('Maven_Build') {
+        
+      }
+    }
+    stage('Maven_Build') {
           parallel {
             //APS Client Manager- Maven Build
             stage("Maven-Build") {
@@ -62,8 +65,6 @@ pipeline {
           }
 
         } //Build APS Projects in Parallel
-      }
-    }
   }
 }
 def getEnvAsSring() {
